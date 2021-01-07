@@ -1,9 +1,9 @@
 pipeline {
   environment {
-   	 PROJECT = "cwpipelinestudent"
- 	   APP_NAME = "cw01student"
-     BRANCH_NAME = "dev_st_branch"
-     PORT = "5070"
+   	 PROJECT = "cwpipelinecourse"
+ 	   APP_NAME = "cw01course"
+     BRANCH_NAME = "dev_cs_bracnh"
+     PORT = "5080"
    	 IMAGE_TAG = "${PROJECT}/${APP_NAME}:${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
                 }
     agent any 
@@ -31,7 +31,7 @@ pipeline {
 		    steps{
 					sh 'mkdir -p dockerImage'
 					sh 'cp Dockerfile dockerImage/'
-					sh 'cp target/student-0.0.1-SNAPSHOT.jar dockerImage/'
+					sh 'cp target/course-0.0.1-SNAPSHOT.jar dockerImage/'
 					sh 'docker build --tag=${APP_NAME} dockerImage/.'
 					sh 'docker tag ${APP_NAME} ${IMAGE_TAG}'
 					
