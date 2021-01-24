@@ -60,7 +60,7 @@ spec:
     matchLabels:
       app: ${APP_NAME}-deploy
       department: stage
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
